@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rollup Test</title>
+  <style type="text/css">
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eee;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: normal;
+}
+
+.wrapper {
+  max-width: 30em;
+  height: auto;
+  margin: 1.5em auto;
+}
+
+.card {
+  max-width: 30em;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  background: #fff;
+}
+.card + .card {
+  margin-top: 2em;
+}
+
+.card__headline {
+  position: absolute;
+  bottom: 26px;
+  left: 16px;
+  color: #fff;
+  font-size: 36px;
+}
+
+.card__media {
+  position: relative;
+  min-height: 4rem;
+  background: #333;
+  line-height: 0;
+}
+
+.card__media--image {
+  width: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.card__body {
+  padding: 1em;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <main id="app"></main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/react/15.3.1/react.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/react/15.3.1/react-dom.min.js"></script>
+  <script>
+  window.data = [
+    {
+    "_id": "57cec106a24548903d3fb3d3",
+    "index": 0,
+    "img": "/img/floweres-500.jpg",
+    "guid": "4f8d54d1-a754-4350-993c-568af36f9757",
+    "isActive": false,
+    "balance": "$3,214.84",
+    "picture": "http://placehold.it/32x32",
+    "age": 28,
+    "eyeColor": "blue",
+    "name": {
+      "first": "Marta",
+      "last": "Pruitt"
+    },
+    "email": "marta.pruitt@undefined.tv",
+    "phone": "+1 (890) 425-3437",
+    "address": "848 Celeste Court, Chemung, Nevada, 3561",
+    "about": "Est nulla consequat excepteur ullamco nulla velit cillum culpa. Qui irure id laboris deserunt adipisicing eiusmod veniam ex. Velit non culpa nostrud cupidatat consectetur excepteur aliqua ea. Dolor irure labore aute esse aliquip.",
+    "registered": "Friday, August 28, 2015 9:40 AM",
+    "latitude": "57.126051",
+    "longitude": "54.184641",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Mckee Battle"
+      },
+      {
+        "id": 1,
+        "name": "Hope Hodges"
+      },
+      {
+        "id": 2,
+        "name": "Miriam Matthews"
+      }
+    ],
+    "greeting": "Hello, Marta! You have 9 unread messages."
+  },
+  {
+    "_id": "57cec10615c338459825159c",
+    "index": 1,
+    "img": "/img/rose-dark-500.jpg",
+    "guid": "57aa5e93-34a5-4372-b14a-ebca85e0d707",
+    "isActive": true,
+    "balance": "$1,846.42",
+    "picture": "http://placehold.it/32x32",
+    "age": 33,
+    "eyeColor": "green",
+    "name": {
+      "first": "Everett",
+      "last": "Hensley"
+    },
+    "email": "everett.hensley@undefined.biz",
+    "phone": "+1 (841) 425-3729",
+    "address": "154 Remsen Street, Gibsonia, American Samoa, 5037",
+    "about": "Labore in est enim laboris. Adipisicing nostrud elit magna exercitation laborum do nulla tempor ut commodo velit laboris. Aliqua non dolor nulla voluptate aliqua.",
+    "registered": "Friday, September 11, 2015 3:27 AM",
+    "latitude": "-80.847246",
+    "longitude": "-101.865869",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Camille Deleon"
+      },
+      {
+        "id": 1,
+        "name": "Ingrid York"
+      },
+      {
+        "id": 2,
+        "name": "Daniel Morrow"
+      }
+    ],
+    "greeting": "Hello, Everett! You have 5 unread messages."
+  },
+  {
+    "_id": "57cec10619fdb6191e2b179e",
+    "index": 2,
+    "img": "/img/stadium-seats-500.jpg",
+    "guid": "ba17ead6-c57b-4571-9496-210c0b8be4fd",
+    "isActive": true,
+    "balance": "$1,322.13",
+    "picture": "http://placehold.it/32x32",
+    "age": 26,
+    "eyeColor": "blue",
+    "name": {
+      "first": "Lea",
+      "last": "Wall"
+    },
+    "email": "lea.wall@undefined.info",
+    "phone": "+1 (845) 512-3978",
+    "address": "150 Beach Place, Bluetown, Indiana, 1443",
+    "about": "Occaecat in quis elit velit quis consectetur id deserunt tempor qui et. Ea ullamco elit anim excepteur cillum labore occaecat elit cupidatat aliquip. Aliquip id do pariatur duis cillum ullamco commodo dolore.",
+    "registered": "Monday, January 6, 2014 2:19 PM",
+    "latitude": "-26.220244",
+    "longitude": "25.299607",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Lucy Lawson"
+      },
+      {
+        "id": 1,
+        "name": "Rivera Wilkinson"
+      },
+      {
+        "id": 2,
+        "name": "Shawna Horne"
+      }
+    ],
+    "greeting": "Hello, Lea! You have 5 unread messages."
+  },
+  {
+    "_id": "57cec106d5c954a0964e8f40",
+    "index": 3,
+    "guid": "5eacb5dd-abef-4e1c-baa7-0d27a6e666c3",
+    "isActive": false,
+    "balance": "$1,929.38",
+    "picture": "http://placehold.it/32x32",
+    "age": 35,
+    "eyeColor": "green",
+    "name": {
+      "first": "Olive",
+      "last": "Shelton"
+    },
+    "email": "olive.shelton@undefined.net",
+    "phone": "+1 (923) 488-2341",
+    "address": "981 Concord Street, Topanga, Texas, 9337",
+    "about": "Qui proident tempor voluptate eu aute ad ad commodo cupidatat nisi pariatur tempor. Tempor consequat duis do commodo qui exercitation nisi elit reprehenderit qui exercitation ad. Proident do officia officia ullamco in laborum veniam aute Lorem ex do exercitation veniam. Voluptate officia amet enim aliqua excepteur ea sit Lorem ea nostrud dolor sunt. Incididunt amet incididunt dolor ad aute quis. Ad eiusmod cillum tempor voluptate eiusmod eiusmod pariatur aliquip fugiat nostrud voluptate voluptate aliquip fugiat.",
+    "registered": "Sunday, July 20, 2014 12:40 PM",
+    "latitude": "59.671051",
+    "longitude": "-178.102285",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Coleman Perry"
+      },
+      {
+        "id": 1,
+        "name": "Lucile Franco"
+      },
+      {
+        "id": 2,
+        "name": "Franks Duncan"
+      }
+    ],
+    "greeting": "Hello, Olive! You have 5 unread messages."
+  },
+  {
+    "_id": "57cec106e9637ea16c5138de",
+    "index": 4,
+    "guid": "861ec07e-34a4-4512-9b46-496153f50a91",
+    "isActive": false,
+    "balance": "$3,051.19",
+    "picture": "http://placehold.it/32x32",
+    "age": 33,
+    "eyeColor": "brown",
+    "name": {
+      "first": "Kristi",
+      "last": "Nielsen"
+    },
+    "email": "kristi.nielsen@undefined.me",
+    "phone": "+1 (943) 557-2017",
+    "address": "189 Montague Street, Loma, Nebraska, 7728",
+    "about": "Deserunt deserunt culpa nostrud mollit reprehenderit aute ipsum aliquip proident. Aliqua est nulla qui esse consequat sit amet culpa proident. Aliqua proident voluptate anim non sint cillum cupidatat eiusmod labore est laboris qui. Duis anim aute do irure tempor. Ad fugiat proident exercitation id occaecat ex mollit elit ex mollit laborum tempor.",
+    "registered": "Tuesday, September 29, 2015 9:57 AM",
+    "latitude": "-87.342156",
+    "longitude": "109.3784",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Rosa Ware"
+      },
+      {
+        "id": 1,
+        "name": "Vicki Burnett"
+      },
+      {
+        "id": 2,
+        "name": "Cristina Shaw"
+      }
+    ],
+    "greeting": "Hello, Kristi! You have 6 unread messages."
+  },
+  {
+    "_id": "57cec106b0cfadadc55afd78",
+    "index": 5,
+    "guid": "c08be661-b4bc-4ffe-bbe0-fb13b3446585",
+    "isActive": false,
+    "balance": "$3,158.35",
+    "picture": "http://placehold.it/32x32",
+    "age": 26,
+    "eyeColor": "blue",
+    "name": {
+      "first": "Joann",
+      "last": "Spencer"
+    },
+    "email": "joann.spencer@undefined.name",
+    "phone": "+1 (929) 440-2422",
+    "address": "833 Remsen Avenue, Fairlee, Federated States Of Micronesia, 2310",
+    "about": "Consequat anim eu sunt laborum deserunt deserunt id nostrud dolore. Reprehenderit laborum deserunt deserunt laborum nulla pariatur incididunt pariatur deserunt. Amet non proident enim elit dolore ut. Occaecat aliquip aliquip pariatur irure ad do cillum tempor consectetur reprehenderit anim elit esse. Dolor proident voluptate consequat ad pariatur sint culpa officia aute dolore. Ullamco aliquip ipsum occaecat deserunt culpa et sint proident cillum eu sunt amet. Sint duis ipsum velit culpa dolore laborum in nulla nisi incididunt consequat.",
+    "registered": "Sunday, August 3, 2014 12:59 PM",
+    "latitude": "-88.744966",
+    "longitude": "-106.290946",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Patricia Browning"
+      },
+      {
+        "id": 1,
+        "name": "Shelly Gross"
+      },
+      {
+        "id": 2,
+        "name": "Stanton Benton"
+      }
+    ],
+    "greeting": "Hello, Joann! You have 8 unread messages."
+  },
+  {
+    "_id": "57cec1060d36726aa20aed03",
+    "index": 6,
+    "guid": "c9a744f8-ba69-4ccc-b3ef-d2281f53e804",
+    "isActive": true,
+    "balance": "$2,554.54",
+    "picture": "http://placehold.it/32x32",
+    "age": 36,
+    "eyeColor": "blue",
+    "name": {
+      "first": "Robin",
+      "last": "Nolan"
+    },
+    "email": "robin.nolan@undefined.biz",
+    "phone": "+1 (937) 461-3982",
+    "address": "561 Prospect Place, Accoville, Tennessee, 7124",
+    "about": "Laborum ullamco pariatur esse ex fugiat esse magna velit tempor in ullamco ullamco in mollit. Ea enim id id nulla nulla voluptate deserunt minim consequat voluptate id tempor aliquip ipsum. Sint magna qui sint ipsum pariatur nisi fugiat anim do duis culpa. Magna commodo deserunt quis ut.",
+    "registered": "Wednesday, May 27, 2015 4:04 AM",
+    "latitude": "46.556859",
+    "longitude": "75.525791",
+    "friends": [
+      {
+        "id": 0,
+        "name": "Kate Bishop"
+      },
+      {
+        "id": 1,
+        "name": "Maddox Huber"
+      },
+      {
+        "id": 2,
+        "name": "James Diaz"
+      }
+    ],
+    "greeting": "Hello, Robin! You have 6 unread messages."
+  }
+];
+  </script>
+  <script type="text/javascript" src="main.bundle.js"></script>
+</body>
+</html>

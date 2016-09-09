@@ -1,0 +1,21 @@
+{
+  "name": "rolluptest",
+  "description": "Testing Rollup",
+  "author": "Kevin Gimbel",
+  "repository": "https://github.com/kevingimbel/rolluptest",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-latest": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "rollup-plugin-commonjs": "^4.1.0",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
+}
